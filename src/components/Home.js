@@ -12,9 +12,9 @@ function Home() {
   useEffect(() => {
     inputRef.current.focus();
     if (initialRender.current) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`;
       console.log("🚀 ~ file: Home.js:17 ~ useEffect ~ url:", url);
-      
+
       axios
         .get(url)
         .then((res) => {
@@ -59,7 +59,7 @@ function Home() {
               <p>{weatherData.name}</p>
             </div>
             <div className="temp">
-              <h1>{weatherData.main.temp}&#8457;</h1>
+              <h1>{weatherData.main.temp}&#8451;</h1>
             </div>
             <div className="description">
               <p>{weatherData.weather[0].main}</p>
@@ -70,7 +70,7 @@ function Home() {
         {weatherData.main && (
           <div className="bottom">
             <div className="feels">
-              <p className="bold">{weatherData.main.feels_like}&#8457;</p>
+              <p className="bold">{weatherData.main.feels_like}&#8451;</p>
               <p>Feels like</p>
             </div>
 
