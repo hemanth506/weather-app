@@ -7,24 +7,25 @@ function Home() {
   const [weatherData, setWeatherData] = useState({});
   const initialRender = useRef(false);
   const inputRef = useRef();
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     inputRef.current.focus();
     if (initialRender.current) {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+      console.log("🚀 ~ file: Home.js:17 ~ useEffect ~ url:", url);
+      
       axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
-        )
+        .get(url)
         .then((res) => {
           console.log(JSON.stringify(res.data));
           setWeatherData(res.data);
-          setError(false)
+          setError(false);
         })
         .catch((e) => {
           console.log(e);
           setWeatherData({});
-          setError(true)
+          setError(true);
         });
     } else {
       initialRender.current = true;
@@ -50,7 +51,6 @@ function Home() {
         />
         <button type="submit">get weather</button>
       </form>
-
 
       <div className="container">
         {weatherData.main && (
@@ -78,7 +78,7 @@ function Home() {
               <p className="bold">{weatherData.main.humidity}%</p>
               <p>Humidity</p>
             </div>
-            
+
             <div className="wind">
               <p className="bold">{weatherData.wind.speed}MPH</p>
               <p>Wind Speed</p>
@@ -86,9 +86,8 @@ function Home() {
           </div>
         )}
 
-      {error && <h2 className="error">Invalid location</h2>}
+        {error && <h2 className="error">Invalid location</h2>}
       </div>
-
     </>
   );
 }
