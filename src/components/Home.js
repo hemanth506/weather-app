@@ -14,7 +14,7 @@ function Home() {
     if (initialRender.current) {
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=80b8381104b294122fb9f95aa452e639`
+          `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         )
         .then((res) => {
           console.log(JSON.stringify(res.data));
