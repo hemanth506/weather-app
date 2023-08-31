@@ -3,7 +3,6 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 body {
@@ -41,24 +40,20 @@ h1 {
   z-index: -1;
 }
 
-.app .search {
-  padding: 1rem;
-}
-
 .app .form {
-  /* text-align: center; */
-  padding: 1rem;
-  padding-left: 39%;
+  width: fit-content;
+  margin: auto;
 }
-
 
 .app input {
-  /* padding: .7rem 1.5rem; */
   font-size: 1.2rem;
+  padding: 1rem;
   border-radius: 25px;
   border: 1px solid rgba(255,255,255, 0.8);
-  background: rgba(255,255,255, 0.1);
+  background: rgba(255,255,0.1, 0.1);
   color: #f8f8f8;
+  margin-top: 20%;  
+  text-align: center;
 }
 
 .app button {
