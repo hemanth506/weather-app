@@ -13,12 +13,12 @@ function Home() {
     inputRef.current.focus();
     if (initialRender.current) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`;
-      console.log("🚀 ~ file: Home.js:17 ~ useEffect ~ url:", url);
+      // console.log("🚀 ~ file: Home.js:17 ~ useEffect ~ url:", url);
 
       axios
         .get(url)
         .then((res) => {
-          console.log(JSON.stringify(res.data));
+          // console.log(JSON.stringify(res.data));
           setWeatherData(res.data);
           setError(false);
         })
